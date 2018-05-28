@@ -11,10 +11,19 @@ For normal object detection, my work got a mAp 71% at PASCAL VOC 2007 datasets
 
 For text object detection mentioned before:
 
-Transfer the datasets into the format like VOC_PASCAL
-A icpr.py class file is used to carry the data as pascal_voc.py
-K-means alg is used to chose the anchor ratio & size
-Much more iterations(100,000) is carry out for param convergence
+1. Transfer the datasets into the format like VOC_PASCAL
+2. A icpr.py class file is used to carry the data as pascal_voc.py
+3. K-means alg is used to chose the anchor ratio & size
+4. Vertical-flip data augment is used
+5. Much more iterations(200,000) is carry out for param convergence
+
 Remain something not good enough for this work:
 
-Faster Rcnn is mainly used for rectangular & horizontal object detection, but text objects in this competition are shape of non-rectangular or non-horizontal, this work is not robust for such objects
+1. Faster Rcnn is mainly used for rectangular & horizontal object detection, but text objects in this competition are shape of non-
+rectangular or non-horizontal, this work is not robust for such objects, and a sematic segmentation based method should be used.
+
+2. The whole avaiable datasets are used as training data, results that no validation sets in this work. The official submission only has
+3 chances, it's hard to valuate my module without a validation datasets.
+
+Below is some of the results:
+
