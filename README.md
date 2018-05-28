@@ -27,3 +27,8 @@ rectangular or non-horizontal, this work is not robust for such objects, and a s
 
 Below is some of the results:
 
+![exp0](https://github.com/superlich7/FasterRcnnTF_ICPR2018/blob/master/file/1304677279.jpg)
+
+![exp0](https://github.com/superlich7/FasterRcnnTF_ICPR2018/blob/master/file/1391390647.jpg)
+
+![exp0](https://github.com/superlich7/FasterRcnnTF_ICPR2018/blob/master/file/2029195364.jpg)
