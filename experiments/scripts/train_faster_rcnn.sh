@@ -35,8 +35,8 @@ case ${DATASET} in
   icpr)
     TRAIN_IMDB="icpr_2018_trainval"
     TEST_IMDB="icpr_2018_test"
-    STEPSIZE="[50000]"
-    ITERS=100000
+    STEPSIZE="[120000]"
+    ITERS=200000
     ANCHORS="[4,8,16,32]"
     RATIOS="[0.15,0.31,0.53,0.84,1.1,2]"
     ;;
