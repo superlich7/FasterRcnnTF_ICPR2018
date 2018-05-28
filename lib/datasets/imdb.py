@@ -106,6 +106,10 @@ class imdb(object):
     return [PIL.Image.open(self.image_path_at(i)).size[0]
             for i in range(self.num_images)]
 
+  def _get_heights(self):
+    return [PIL.Image.open(self.image_path_at(i)).size[1]
+            for i in range(self.num_images)]
+
   def append_flipped_images(self):
     num_images = self.num_images
     widths = self._get_widths()
@@ -121,7 +125,26 @@ class imdb(object):
       entry = {'boxes': boxes,
                'gt_overlaps': self.roidb[i]['gt_overlaps'],
                'gt_classes': self.roidb[i]['gt_classes'],
-               'flipped': True}
+               'flipped': True,
+			   'ver_flipped':  self.roidb[i]['ver_flipped']}
+      self.roidb.append(entry)
+    self._image_index = self._image_index * 2
+
+  def append_vertical_flipped_images(self):
+    num_images = self.num_images 
+    heights = self._get_heights()
+    for i in range(num_images):
+      boxes = self.roidb[i]['boxes'].copy()
+      oldy1 = boxes[:, 1].copy()
+      oldy2 = boxes[:, 3].copy()
+      boxes[:, 1] = heights[i] - oldy2 - 1
+      boxes[:, 3] = heights[i] - oldy1 - 1
+      assert (boxes[:, 3] >= boxes[:, 1]).all()
+      entry = {'boxes': boxes,
+               'gt_overlaps': self.roidb[i]['gt_overlaps'],
+               'gt_classes': self.roidb[i]['gt_classes'],
+			   'flipped':self.roidb[i]['flipped'],
+               'ver_flipped': True}
       self.roidb.append(entry)
     self._image_index = self._image_index * 2
 

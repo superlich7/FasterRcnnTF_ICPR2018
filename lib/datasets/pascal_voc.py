@@ -182,6 +182,7 @@ class pascal_voc(imdb):
             'gt_classes': gt_classes,
             'gt_overlaps': overlaps,
             'flipped': False,
+            'ver_flipped': False,
             'seg_areas': seg_areas}
 
   def _get_comp_id(self):

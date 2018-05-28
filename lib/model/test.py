@@ -135,7 +135,7 @@ def apply_nms(all_boxes, thresh):
       nms_boxes[cls_ind][im_ind] = dets[keep, :].copy()
   return nms_boxes
 
-def test_net(sess, net, imdb, weights_filename, max_per_image=100, thresh=0.5):
+def test_net(sess, net, imdb, weights_filename, max_per_image=100, thresh=0.65):
   np.random.seed(cfg.RNG_SEED)
   """Test a Fast R-CNN network on an image database."""
   num_images = len(imdb.image_index)
@@ -179,8 +179,8 @@ def test_net(sess, net, imdb, weights_filename, max_per_image=100, thresh=0.5):
           keep = np.where(all_boxes[j][i][:, -1] >= image_thresh)[0]
           all_boxes[j][i] = all_boxes[j][i][keep, :]
 
-    #print(imdb.image_path_at(i))
     #fow img show
+    #print(imdb.image_path_at(i))
     #for k in range(len(all_boxes[1][i])):
     #  cv2.rectangle(im,(all_boxes[1][i][k,0],all_boxes[1][i][k,1]),(all_boxes[1][i][k,2],all_boxes[1][i][k,3]),(0,0,255),2)
     #cv2.imwrite(os.path.join(output_dir,str(i)+'.jpg'),im)

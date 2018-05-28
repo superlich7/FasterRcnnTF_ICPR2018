@@ -84,6 +84,8 @@ __C.TRAIN.BG_THRESH_LO = 0.1
 
 # Use horizontally-flipped images during training?
 __C.TRAIN.USE_FLIPPED = True
+# Use vertical-flipped images during training?
+__C.TRAIN.USE_VER_FLIPPED = True
 
 # Train bounding-box regressors
 __C.TRAIN.BBOX_REG = True
@@ -174,7 +176,7 @@ __C.TEST.MAX_SIZE = 1000
 
 # Overlap threshold used for non-maximum suppression (suppress boxes with
 # IoU >= this threshold)
-__C.TEST.NMS = 0.3
+__C.TEST.NMS = 0.15
 
 # Experimental: treat the (K+1) units in the cls_score layer as linear
 # predictors (trained, eg, with one-vs-rest SVMs).

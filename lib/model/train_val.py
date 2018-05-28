@@ -328,6 +328,11 @@ def get_training_roidb(imdb):
     imdb.append_flipped_images()
     print('done')
 
+  if cfg.TRAIN.USE_VER_FLIPPED:
+    print('Appending vertically-flipped training examples...')
+    imdb.append_vertical_flipped_images()
+    print('done')
+
   print('Preparing training data...')
   rdl_roidb.prepare_roidb(imdb)
   print('done')
